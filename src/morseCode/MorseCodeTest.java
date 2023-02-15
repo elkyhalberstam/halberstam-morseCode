@@ -10,9 +10,9 @@ class MorseCodeTest
     @Test
     public void toMorseCode() {
         // given
-        MorseCode one = new MorseCode("Hello World");
+        MorseCode one = new MorseCode("");
         // when
-        String message = one.toMorseCode();
+        String message = one.toMorseCode("Hello World");
         // then
         assertEquals("**** * *-** *-** --- \t*-- --- *-* *-** -** ", message);
     }

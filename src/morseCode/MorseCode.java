@@ -5,9 +5,6 @@ import java.util.Locale;
 public class MorseCode
 {
     private String message;
-//
-//    private final String[] morse = {"*- ", "-*** ", "-*-* ", "-** ", "* ", "**-*", "--*", "****"};
-//    private final String[] english = {};
 
     public MorseCode(String message) {this.message = message.toUpperCase(Locale.ROOT);
     }
@@ -17,9 +14,9 @@ public class MorseCode
     }
 
 
-    public String toMorseCode()
+    public String toMorseCode(String message)
     {
-        StringBuilder morseCode = new StringBuilder("");
+        StringBuilder morseCode = new StringBuilder();
         for(int i=0; i<message.length();i++)
         {
             char letter = message.charAt(i);
@@ -31,14 +28,13 @@ public class MorseCode
     public String toMessage(String morseCode)
     {
         String[] morseMessage = morseCode.split(" ");
-        //StringBuilder stringMessage = new StringBuilder("");
-        String stringMessage = "";
+        StringBuilder stringMessage = new StringBuilder();
         for(int i=0; i<morseMessage.length;i++)
         {
             String letter = morseMessage[i];
-            stringMessage = stringMessage + stringMorse(letter);
+            stringMessage = stringMessage.append(stringMorse(letter));
         }
-        return stringMessage;
+        return String.valueOf(stringMessage);
     }
 
     private String stringMorse(String letter) {
@@ -85,7 +81,7 @@ public class MorseCode
 
     private String charMorse(char letter)
     {
-        String morse = switch (letter) {
+        return switch (letter) {
             case 'A' -> "*- ";
             case 'B' -> "-*** ";
             case 'C' -> "-*-* ";
@@ -124,6 +120,5 @@ public class MorseCode
             case '0' -> "----- ";
             default -> "\t";
         };
-        return morse;
     }
 }
