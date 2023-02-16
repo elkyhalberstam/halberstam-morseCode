@@ -4,25 +4,16 @@ import java.util.Locale;
 
 public class MorseCode
 {
-    private String message;
-
-    public MorseCode(String message) {this.message = message.toUpperCase(Locale.ROOT);
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-
     public String toMorseCode(String message)
     {
+        message = message.toUpperCase();
         StringBuilder morseCode = new StringBuilder();
         for(int i=0; i<message.length();i++)
         {
             char letter = message.charAt(i);
             morseCode.append(charMorse(letter));
         }
-        return String.valueOf(morseCode);
+        return morseCode.toString();
     }
 
     public String toMessage(String morseCode)
@@ -34,7 +25,7 @@ public class MorseCode
             String letter = morseMessage[i];
             stringMessage = stringMessage.append(stringMorse(letter));
         }
-        return String.valueOf(stringMessage);
+        return stringMessage.toString();
     }
 
     private String stringMorse(String letter) {

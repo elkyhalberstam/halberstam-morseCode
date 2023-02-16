@@ -10,7 +10,7 @@ class MorseCodeTest
     @Test
     public void toMorseCode() {
         // given
-        MorseCode one = new MorseCode("");
+        MorseCode one = new MorseCode();
         // when
         String message = one.toMorseCode("Hello World");
         // then
@@ -20,7 +20,7 @@ class MorseCodeTest
     @Test
     public void toMessage() {
         // given
-        MorseCode one = new MorseCode("");
+        MorseCode one = new MorseCode();
         // when
         String message = one.toMessage("**** * *-** *-** --- \t *-- --- *-* *-** -** ");
         // then
